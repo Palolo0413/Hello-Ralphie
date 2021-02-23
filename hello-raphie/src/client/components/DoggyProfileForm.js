@@ -6,8 +6,8 @@ import {
   Button,
   TextField
 } from '@material-ui/core'
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles'
 
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 let theme = createMuiTheme({
   palette: {
@@ -37,7 +37,7 @@ class DoggyProfileForm extends React.Component {
           backgroundColor:'#FCEFD5'
         }}
       >
-        <form style={{width: '50%', color:'#B69594'}} >
+        <form style={{width: '33%', color:'#B69594'}} >
           <h1 color="#B69594">Your Doggy Profile</h1>
 
           <FormControl margin="normal" fullWidth color="primary">
