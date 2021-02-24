@@ -7,7 +7,7 @@ const getDoggy = (doggy) => ({
     doggy,
   })
 
-  export const fetchDoggy = () => {
+export const fetchDoggy = () => {
     return async (dispatch) => {
       try {
         const {data} = await axios.get('/api/doggy')
@@ -19,7 +19,7 @@ const getDoggy = (doggy) => ({
     }
   }
 
-  export const createDoggy = (doggy) => {
+export const createDoggy = (doggy) => {
     return async (dispatch) => {
       try {
         const {data} = await axios.post('/api/doggy', doggy)
@@ -35,7 +35,7 @@ const getDoggy = (doggy) => ({
     doggy: {}
   }
   
-  export default function (state = initialState, action) {
+export default function foo (state = initialState, action) {
     switch (action.type) {
       case GET_DOGGY:
         return {

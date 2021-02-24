@@ -1,5 +1,6 @@
 import React from 'react'
-import {createDoggy} from '../store/doggy'
+import {connect} from 'react-redux'
+import {createDoggy, fetchDoggy} from '../store/doggy'
 import {
   FormControl,
   InputLabel,
@@ -37,6 +38,8 @@ class DoggyProfileForm extends React.Component {
       breed:'',
       birthday:''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = (e) => {
@@ -48,7 +51,7 @@ class DoggyProfileForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const birthday = new Date(this.state.date)
+    const birthday = new Date(this.state.birthday)
     let newDoggy = {
       name: this.state.name,
       breed: this.state.breed,
@@ -72,8 +75,7 @@ class DoggyProfileForm extends React.Component {
           backgroundColor:'#FCEFD5'
         }}
       >
-        <form style={{width: '70%', height:'99%', color:'#B69594'}} >
-          {/* <h1 color="#B69594">Your Doggy Profile</h1> */}
+        <form style={{width: '70%', height:'99%', color:'#B69594'}} onSubmit={this.handleSubmit} >
           <Typography >
           <Box  fontSize={30} letterSpacing={6} textAlign="left" fontWeight="fontWeightBold" margin={0} paddingBottom={6}>
           Your Doggy Profile
@@ -82,12 +84,12 @@ class DoggyProfileForm extends React.Component {
 
           <FormControl margin="normal" fullWidth color="primary" focused='true'>
             <InputLabel htmlFor="name" color="primary">Name</InputLabel>
-            <Input id="name" type="text" color="primary" />
+            <Input id="name" type="text" color="primary" onChange={this.handleChange}/>
           </FormControl>
 
           <FormControl margin="normal" fullWidth color="primary" focused='true'>
             <InputLabel htmlFor="breed" color="primary">Breed</InputLabel>
-            <Input id="breed" type="text" color="primary"/>
+            <Input id="breed" type="text" color="primary" onChange={this.handleChange}/>
           </FormControl>
 
           <FormControl margin="normal" fullWidth color="primary" focused='true' variant='outlined'>
@@ -101,15 +103,14 @@ class DoggyProfileForm extends React.Component {
                 label="Birthday"
                 type="date"
                 InputLabelProps={{shrink: true,}}
-                InputProps={{color:"primary", backgroundColor:'primary' }}/>
+                InputProps={{color:"primary"}} onChange={this.handleChange}/>
       </FormControl>
       
           <Button variant="contained" color="secondary" size="large">
           <Box display="flex-end" textAlign="right">
             Next
           </Box>
-          </Button>
-          
+          </Button>  
         </form>
       </div>
       </Grid>
@@ -139,4 +140,17 @@ class DoggyProfileForm extends React.Component {
   }
 }
 
-export default DoggyProfileForm
+const mapState = state => {
+  return {
+    doggy: state.doggy
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    createDoggy: (newDoggy) => dispatch(createDoggy(newDoggy)),
+    fetchDoggy: () => dispatch(fetchDoggy()),
+  }
+}
+
+export default connect(mapState, mapDispatch)(DoggyProfileForm)
