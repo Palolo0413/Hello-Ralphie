@@ -1,7 +1,7 @@
 'use strict'
 
-const db = require('../server/db')
-const {Doggy, Behavior} = require('../server/db/models')
+const db = require('./server/db')
+const {Doggy, Behavior} = require('./server/db/models')
 
 async function createDoggy() {
     const doggy1 = {
