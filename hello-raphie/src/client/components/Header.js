@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:'#FCEFD5'
   },
   image: {
-    width: 500,
+    width: 250,
     position: 'left'
   }
 }))

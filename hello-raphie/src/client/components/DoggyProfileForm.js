@@ -71,8 +71,13 @@ class DoggyProfileForm extends React.Component {
           backgroundColor:'#FCEFD5'
         }}
       >
-        <form style={{width: '80%', height:'99%', color:'#B69594'}} >
-          <h1 color="#B69594">Your Doggy Profile</h1>
+        <form style={{width: '70%', height:'99%', color:'#B69594'}} >
+          {/* <h1 color="#B69594">Your Doggy Profile</h1> */}
+          <Typography >
+          <Box  fontSize={30} letterSpacing={6} textAlign="left" fontWeight="fontWeightBold" margin={0} paddingBottom={6}>
+          Your Doggy Profile
+          </Box>
+          </Typography >
 
           <FormControl margin="normal" fullWidth color="primary" focused='true'>
             <InputLabel htmlFor="name" color="primary">Name</InputLabel>
@@ -97,35 +102,22 @@ class DoggyProfileForm extends React.Component {
                 InputLabelProps={{shrink: true,}}
                 InputProps={{color:"primary", backgroundColor:'primary' }}/>
       </FormControl>
-      <Box 
-        display="right" 
-        alignItems="right"
-        justifyContent="center"
-        bgcolor="primary"
-        paddingTop={4}
-      >
-          <Button variant="contained" color="secondary" size="large" textAlign="center" >
+      
+          <Button variant="contained" color="secondary" size="large">
+          <Box display="flex-end" textAlign="right">
             Next
-          </Button>
           </Box>
+          </Button>
+          
         </form>
       </div>
       </Grid>
       <Grid xs='12' sm='4' color='primary'>
       <Grid container direction="column" justify="center" alignItems="center">
       <Grid>
-      <img alt=' ' src='DoggoBig.png' display='inline' height='150px' padding={20}/>
+      <img alt=' ' src='DoggoBig.png' display='inline' height='180px' padding={20}/>
       </Grid>
       <Grid container direction="column" justify="center" alignItems="center">
-      {/* <Typography variant="h4"> 
-       FIDO
-      </Typography >
-      <Typography variant="h5">
-       Golden Lab
-      </Typography>
-      <Typography variant="h5">
-       Five Years Old
-      </Typography> */}
       <Typography >
       <Box letterSpacing={6} m={1} textAlign="center">
        FIDO
