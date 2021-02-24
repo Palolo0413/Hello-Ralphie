@@ -28,6 +28,34 @@ theme = responsiveFontSizes(theme)
 
 
 class DoggyProfileForm extends React.Component {
+
+  constructor(props){
+    super (props)
+    this.state={
+      name:'',
+      breed:'',
+      birthday:''
+    }
+  }
+
+  // handleChange = (e) => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value,
+  //   })
+  // }
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+
+  //   const birthday = new Date(this.state.date)
+  //   let newDoggy = {
+  //     name: this.state.name,
+  //     breed: this.state.breed,
+  //     birthday: birthday,
+  //   }
+    
+  //   this.props.createDoggy(newDoggy)
+  // }
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -59,7 +87,6 @@ class DoggyProfileForm extends React.Component {
           <FormControl margin="normal" fullWidth color="primary" focused='true' variant='outlined'>
           
           <TextField
-                variant='outlined'
                 variant='filled'
                 focused='true'
                 backgroundColor='primary'
@@ -90,17 +117,26 @@ class DoggyProfileForm extends React.Component {
       <img alt=' ' src='DoggoBig.png' display='inline' height='150px' padding={20}/>
       </Grid>
       <Grid container direction="column" justify="center" alignItems="center">
-        <Grid>
-      <Typography variant="h4">
+      {/* <Typography variant="h4"> 
        FIDO
       </Typography >
-      </Grid>
       <Typography variant="h5">
        Golden Lab
       </Typography>
       <Typography variant="h5">
        Five Years Old
-      </Typography>
+      </Typography> */}
+      <Typography >
+      <Box letterSpacing={6} m={1} textAlign="center">
+       FIDO
+      </Box>
+      <Box letterSpacing={6} m={1} textAlign="center">
+       Golden Lab
+      </Box>
+      <Box letterSpacing={6} m={1} textAlign="center">
+       Five Years Old
+      </Box>
+    </Typography>
       </Grid>
       </Grid>
       </Grid>
