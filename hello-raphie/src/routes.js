@@ -20,7 +20,7 @@ class Routes extends Component {
     return (
       <Switch>
         <Route path="/" component={DoggyProfileForm} />
-        <Route exact path="/logging" component={DoggyProfileLogging} />
+        <Route exact path="/profile" component={DoggyProfileLogging} />
         
       </Switch>
     )
