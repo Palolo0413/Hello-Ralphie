@@ -1,4 +1,5 @@
 import React from 'react'
+import {createDoggy} from '../store/doggy'
 import {
   FormControl,
   InputLabel,
@@ -38,24 +39,24 @@ class DoggyProfileForm extends React.Component {
     }
   }
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   })
-  // }
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
+  }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
+  handleSubmit = (e) => {
+    e.preventDefault()
 
-  //   const birthday = new Date(this.state.date)
-  //   let newDoggy = {
-  //     name: this.state.name,
-  //     breed: this.state.breed,
-  //     birthday: birthday,
-  //   }
+    const birthday = new Date(this.state.date)
+    let newDoggy = {
+      name: this.state.name,
+      breed: this.state.breed,
+      birthday: birthday,
+    }
     
-  //   this.props.createDoggy(newDoggy)
-  // }
+    this.props.createDoggy(newDoggy)
+  }
   render() {
     return (
       <ThemeProvider theme={theme}>
